@@ -23,7 +23,7 @@ import javax.sql.DataSource;
 //@Configuration //声明这个类是配置类 代替xml
 ////开启springboot 注入的熟悉值
 //@EnableConfigurationProperties(jdbcProperties.class)
-
+//属性名字必须是application.properties (规约)
 public class jdbcConfig2 {
 
 
