@@ -11,6 +11,6 @@ public class SecondHello {
     @GetMapping("second")
     public String second()
     {
-        return "say second";
+        return "say second!";
     }
 }
