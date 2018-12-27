@@ -1,6 +1,7 @@
 package cn.itcast.Controller;
 
-import com.alibaba.druid.pool.DruidDataSource;
+import cn.itcast.Service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,14 +14,16 @@ import javax.sql.DataSource;
 @RestController
 public class HelloController {
 
-    @Autowired
-    DataSource dataSource;
+   @Autowired
+    UserService userService;
+
+
 
     @GetMapping("hi")
     public String Hello()
     {
 
-        System.out.println(dataSource);
+       System.out.println(userService.queryById(1));
         return "hi zp!";
 
     }

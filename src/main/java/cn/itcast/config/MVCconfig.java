@@ -1,7 +1,10 @@
 package cn.itcast.config;
 
+import cn.itcast.intercepter.LoginInterceptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -10,6 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 
 /**
  * Created by netman on 2018/12/26.
@@ -21,8 +25,9 @@ import javax.servlet.http.HttpServletResponse;
 @Configuration
 public class MVCconfig implements WebMvcConfigurer {
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {//注册拦截器
+    //拦截器方式一
+  //  @Override
+    public void addInterceptors2(InterceptorRegistry registry) {//注册拦截器
 
         registry.addInterceptor(new HandlerInterceptor() {
             //定义self4j日志主键
@@ -46,5 +51,24 @@ public class MVCconfig implements WebMvcConfigurer {
         }).addPathPatterns("/**");
 
 
+    }
+    @Bean
+    public LoginInterceptor loginInterceptor()
+    {
+        return new LoginInterceptor();
+    }
+
+    //@Autowired
+  //  DataSource dataSource;
+    //拦截器 方式二
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+
+        //这样new 会导致LoginInterceptor类中的注入 注入不了 因为此处是new 已经不是spring 管理的
+        //组件 需要特别注意  如果一定要注入 则需要在当前拦截器中 用@bean 的方式注入需要使用的拦截器方法
+        //切记不能直接使用new 否则spring 将无法注入
+       // registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**");
+
+        registry.addInterceptor(this.loginInterceptor()).addPathPatterns("/**");
     }
 }

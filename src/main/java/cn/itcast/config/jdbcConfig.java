@@ -1,6 +1,6 @@
 package cn.itcast.config;
 
-import com.alibaba.druid.pool.DruidDataSource;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -64,17 +64,17 @@ public class jdbcConfig {
 
 
 
-    @Bean //注入到spring容器中
-    public DataSource dataSource()
-    {
-        //alibabadruid 数据源
-        DruidDataSource dataSource=new DruidDataSource();
-        dataSource.setDriverClassName(driverClassName);
-        dataSource.setUrl(url);
-        dataSource.setUsername(username);
-        dataSource.setPassword(password);
-        return dataSource;
-    }
+//    @Bean //注入到spring容器中
+//    public DataSource dataSource()
+//    {
+//        //alibabadruid 数据源
+//        DruidDataSource dataSource=new DruidDataSource();
+//        dataSource.setDriverClassName(driverClassName);
+//        dataSource.setUrl(url);
+//        dataSource.setUsername(username);
+//        dataSource.setPassword(password);
+//        return dataSource;
+//    }
 }
 
 

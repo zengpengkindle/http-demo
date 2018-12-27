@@ -17,7 +17,7 @@ import org.springframework.context.annotation.PropertySource;
  *
  */
 // @PropertySource("classpath:jdbc.properties") //属性地址 springboot会自动去找application.properties文件
-@ConfigurationProperties(prefix = "jdbc") //属性前缀
+//@ConfigurationProperties(prefix = "jdbc") //属性前缀
 public class jdbcProperties {
     private String driverClassName;
 
