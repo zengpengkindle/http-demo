@@ -1,6 +1,7 @@
 package cn.itcast.Mapper;
 
 import cn.itcast.pojo.User;
+import org.apache.ibatis.annotations.Select;
 import tk.mybatis.mapper.common.Mapper;
 
 /**
@@ -8,5 +9,8 @@ import tk.mybatis.mapper.common.Mapper;
  */
 
 public interface UserMapper extends Mapper<User> {
+
+    @Select("select * from tb_user where id = #{id}")
+    public User getUserByID(long id);
 
 }
