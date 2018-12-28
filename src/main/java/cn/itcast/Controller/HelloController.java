@@ -38,4 +38,10 @@ public class HelloController {
         model.addAttribute("userlist",userService.SelectAll());
         return "userAll";
     }
+    @GetMapping("xml")
+    @ResponseBody
+    public User queryUserByXMlId()
+    {
+        return userService.queryUserByXMlId(1);
+    }
 }

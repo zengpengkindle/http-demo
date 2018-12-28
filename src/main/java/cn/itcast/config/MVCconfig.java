@@ -62,26 +62,26 @@ public class MVCconfig implements WebMvcConfigurer {
 
     }
 
-    @Bean
-    public SqlSessionFactoryBean sqlSessionFactoryBean() {
-        SqlSessionFactoryBean sqlFactory = new SqlSessionFactoryBean();
-        //  SqlSessionFactory
-        try {
-            sqlFactory.setDataSource(dataSource);
-            //设置mybatis的主配置文件  记住是主配置文件啊
-            ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-            Resource mybatisXml = resolver.getResource("classpath:mybatis-config.xml");
-            sqlFactory.setConfigLocation(mybatisXml);
-            //设置mapper.xml文件的路径
-            Resource[] resource = resolver.getResources("classpath*:com/jiuzhm/memo/mybatis/**/*.xml");//{resourceMapXML};
-            sqlFactory.setMapperLocations(resource);
-            //扫描实体类所在包
-            sqlFactory.setTypeAliasesPackage("com.jiuzhm.memo.mybatis.entity");
-        } catch (Exception e) {
-            //e.printStackTrace();
-        }
-        return sqlFactory;
-    }
+//    @Bean
+//    public SqlSessionFactoryBean sqlSessionFactoryBean() {
+//        SqlSessionFactoryBean sqlFactory = new SqlSessionFactoryBean();
+//        //  SqlSessionFactory
+//        try {
+//            sqlFactory.setDataSource(dataSource);
+//            //设置mybatis的主配置文件  记住是主配置文件啊
+//            ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+//            Resource mybatisXml = resolver.getResource("classpath:mybatis-config.xml");
+//            sqlFactory.setConfigLocation(mybatisXml);
+//            //设置mapper.xml文件的路径
+//            Resource[] resource = resolver.getResources("classpath*:com/jiuzhm/memo/mybatis/**/*.xml");//{resourceMapXML};
+//            sqlFactory.setMapperLocations(resource);
+//            //扫描实体类所在包
+//            sqlFactory.setTypeAliasesPackage("com.jiuzhm.memo.mybatis.entity");
+//        } catch (Exception e) {
+//            //e.printStackTrace();
+//        }
+//        return sqlFactory;
+//    }
 
 
 

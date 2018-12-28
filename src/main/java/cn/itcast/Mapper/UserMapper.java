@@ -13,4 +13,7 @@ public interface UserMapper extends Mapper<User> {
     @Select("select * from tb_user where id = #{id}")
     public User getUserByID(long id);
 
+
+    public User queryUserByXMlId(int id);
+
 }

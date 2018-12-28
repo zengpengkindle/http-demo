@@ -34,4 +34,9 @@ public class UserService {
 
         return  userMapper.selectAll();
     }
+
+    public User queryUserByXMlId(int i)
+    {
+        return userMapper.queryUserByXMlId(i);
+    }
 }
