@@ -95,7 +95,7 @@ public class MVCconfig implements WebMvcConfigurer {
   //  DataSource dataSource;
     //拦截器 方式二
     @Override
-    public void addInterceptors(InterceptorRegistry registry) {
+            public void addInterceptors(InterceptorRegistry registry) {
 
         //这样new 会导致LoginInterceptor类中的注入 注入不了 因为此处是new 已经不是spring 管理的
         //组件 需要特别注意  如果一定要注入 则需要在当前拦截器中 用@bean 的方式注入需要使用的拦截器方法

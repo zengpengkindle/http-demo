@@ -10,8 +10,9 @@ spring:
 #mybatis
 mybatis:
   type-aliases-package: cn.itcast.pojo
-   #扫描mybatis xml sql 语句文件
-   mapper-locations: classpath:mapper/*.xml
+  mapper-locations: classpath:mapper/*.xml
+
+   #mapper-locations: classpath:mapper/*.xml
   # mapper-locations: classpath*:cn/itcast/mappers/*.xml
     #扫描核心包
    #config-location: classpath:
